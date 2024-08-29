@@ -45,7 +45,7 @@ const Register = ({ setCurrentView }: IRegisterProps) => {
   return (
     <div 
     id="register-pages" 
-    className="w-full min-h-screen flex items-center justify-center bg-gray-bg"
+    className="w-full min-h-screen flex items-center justify-center "
   >
     <div 
       id="onboarding-card" 

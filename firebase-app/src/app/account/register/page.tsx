@@ -29,7 +29,7 @@ const Register = ({ setCurrentView }: IRegisterProps) => {
     }
     else {
       toast.success(message, { toastId: "register" })
-      router.push("/")
+      setCurrentView(LOGIN_VIEW.SIGN_IN)
     }
   };
 

@@ -5,7 +5,7 @@ import { useDataContext } from "@/context/data.context";
 import signIn from "@/services/auth/signIn";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import { AuthResponse } from "@/interfaces/data";
+import { RESPONSE_STATUS } from "@/interfaces/data";
 import GoogleImage from "@/components/GoogleImage";
 import Button from "@/components/Button";
 import GithubImage from "@/components/GitHubImage";
@@ -28,14 +28,17 @@ const Login = ({ setCurrentView }: ILoginProps) => {
         e.preventDefault();
         const { response, status, message } = await signIn(userEmail, userPassword);
 
-        if(status === 400 && message){
+        if(status === RESPONSE_STATUS.UNAUTHORIZED && message){
             toast.error(message, { toastId: "fail"});
+            return;
         }
-        else{
-            setUser(response!);
-            toast.success(message, { toastId: "success" });
-            router.push("/");
+        if(status === RESPONSE_STATUS.ERROR && message){
+            toast.error(message, { toastId: "fail"});
+            return;
         }
+        setUser(response!);
+        toast.success(message, { toastId: "success"});
+        router.push("/");
     };
 
 

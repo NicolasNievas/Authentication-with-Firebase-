@@ -44,19 +44,19 @@ const Register = ({ setCurrentView }: IRegisterProps) => {
 
   return (
     <div 
-      id="register-pages" 
-      className="w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-gray-800"
+    id="register-pages" 
+    className="w-full min-h-screen flex items-center justify-center bg-gray-bg"
+  >
+    <div 
+      id="onboarding-card" 
+      className="bg-white p-8 md:p-16 rounded-lg shadow-lg shadow-black max-w-2xl w-full"
     >
       <div 
-        id="onboarding-card" 
-        className="bg-white p-8 md:p-16 rounded-lg shadow-lg shadow-black max-w-2xl w-full"
+        id="onboarding-form" 
+        className="flex flex-col justify-center w-full text-center"
       >
-        <div 
-          id="onboarding-form" 
-          className="flex flex-col justify-center w-full text-center"
-        >
-          <h2 className="text-lg font-bold mb-4">BECOME A MEMBER</h2>
-          <p className="text-sm mb-6">Create your Member profile</p>
+        <h2 className="text-lg font-bold mb-4 text-black">BECOME A MEMBER</h2>
+        <p className="text-sm mb-6 text-gray-txt">Create your Member profile</p>
           <form onSubmit={handleRegister}>
             <div className="mb-4">
               <input

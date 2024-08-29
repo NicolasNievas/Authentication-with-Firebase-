@@ -47,15 +47,18 @@ const Register = ({ setCurrentView }: IRegisterProps) => {
       id="register-pages" 
       className="w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-gray-800"
     >
-      <div id="onboarding-card" className="bg-white p-2 md:p-4 rounded-lg shadow-lg shadow-black">
+      <div 
+        id="onboarding-card" 
+        className="bg-white p-8 md:p-16 rounded-lg shadow-lg shadow-black max-w-2xl w-full"
+      >
         <div 
           id="onboarding-form" 
           className="flex flex-col justify-center w-full text-center"
         >
-          <h2 className="text-lg font-bold mb-2 md:mb-4">BECOME A MEMBER</h2>
-          <p className="text-sm mb-4">Create your Member profile, and get access to an Jira Beta experience.</p>
+          <h2 className="text-lg font-bold mb-4">BECOME A MEMBER</h2>
+          <p className="text-sm mb-6">Create your Member profile</p>
           <form onSubmit={handleRegister}>
-            <div className="mb-2 md:mb-4">
+            <div className="mb-4">
               <input
                 id="first-name"
                 type="text"
@@ -68,7 +71,7 @@ const Register = ({ setCurrentView }: IRegisterProps) => {
                 required
               />
             </div>
-            <div className="mb-2 md:mb-4">
+            <div className="mb-4">
               <input
                 id="last-name"
                 type="text"
@@ -81,7 +84,7 @@ const Register = ({ setCurrentView }: IRegisterProps) => {
                 required
               />
             </div>
-            <div className="mb-2 md:mb-4">
+            <div className="mb-4">
               <input
                 id="email"
                 type="email"
@@ -94,7 +97,7 @@ const Register = ({ setCurrentView }: IRegisterProps) => {
                 required
               />
             </div>
-            <div className="mb-2 md:mb-4">
+            <div className="mb-4">
               <input
                 id="password"
                 type="password"
@@ -110,21 +113,22 @@ const Register = ({ setCurrentView }: IRegisterProps) => {
             <Button 
               name="Sign up" 
               isDisabled={isSubmitDisabled} 
-              className="text-sm px-3 py-1 transition-colors duration-200 hover:bg-gray-700" 
+              className="text-sm px-4 py-2 transition-colors duration-200 hover:bg-gray-700 w-full" 
             />
             <div className="mt-4">
               <button 
-              onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)} 
-              className="text-sm text-blue-500 hover:underline mb-2 mt-0"
+                onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)} 
+                className="text-sm text-blue-500 hover:underline"
               >
-              I have account
-            </button>
+                I have an account
+              </button>
             </div>
           </form>
         </div>
       </div>
     </div>
   );
+  
 }
 
 export default Register;

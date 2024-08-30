@@ -7,6 +7,7 @@ export interface AuthResponse <T>{
 export enum LOGIN_VIEW{
     SIGN_IN = "sign-in",
     REGISTER = "register",
+    FORGOT_PASSWORD = "forgot-password"
 }
 
 export enum RESPONSE_STATUS{

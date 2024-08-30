@@ -21,7 +21,6 @@ const Login = ({ setCurrentView }: ILoginProps) => {
     const [userEmail, setUserEmail] = useState<string>("");
     const [userPassword, setUserPassword] = useState<string>("");
     const [isSubmitDisabled, setIsSubmitDisabled] = useState<boolean>(true);
-    const [isSubmitLoading, setIsSubmitLoading] = useState<boolean>(false);
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

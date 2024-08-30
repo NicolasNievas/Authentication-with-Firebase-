@@ -11,6 +11,8 @@ import Button from "@/components/Button";
 import GithubImage from "@/components/GitHubImage";
 import signInWithGoogle from "@/services/auth/SignInWithGoogle";
 import signInWithGitHub from "@/services/auth/signInWithGitHub";
+import { sendPasswordResetEmail } from "firebase/auth";
+import restartPassword from "@/services/auth/restartPassword";
 
 interface ILoginProps {
     setCurrentView: (view: LOGIN_VIEW) => void;
@@ -80,21 +82,22 @@ useEffect(() => {
     }
   }
 
+  const handleRestartPassword = async () => {
+    const { status, message } = await restartPassword(userEmail); // Llamada al servicio
+
+    if (status === RESPONSE_STATUS.ERROR && message) {
+      toast.error(message, { toastId: "fail" });
+    } else {
+      toast.success("Password reset email sent successfully.", { toastId: "success" });
+    }
+  };
+
   return (
-    <div 
-    id="login-pages" 
-    className="w-full min-h-screen flex items-center justify-center "
-  >
-    <div 
-      id="onboarding-card" 
-      className="bg-white p-8 md:p-16 rounded-lg shadow-lg shadow-black max-w-2xl w-full"
-    >
-      <div 
-        id="onboarding-form" 
-        className="flex flex-col justify-center w-full text-center"
-      >
-        <h2 className="text-lg font-bold mb-4 text-black">WELCOME BACK</h2>
-        <p className="text-sm mb-6 text-gray-txt">Log in to access.</p>
+    <div id="login-pages" className="w-full min-h-screen flex items-center justify-center">
+      <div id="onboarding-card" className="bg-white p-8 md:p-16 rounded-lg shadow-lg shadow-black max-w-2xl w-full">
+        <div id="onboarding-form" className="flex flex-col justify-center w-full text-center">
+          <h2 className="text-lg font-bold mb-4 text-black">WELCOME BACK</h2>
+          <p className="text-sm mb-6 text-gray-txt">Log in to access.</p>
           <form className="relative mb-4" onSubmit={handleSubmitWithGoogle}>
             <GoogleImage classname="absolute bottom-[40%] left-[5%]" width={40} height={40} />
             <Button name="Continue with Google" className="hover:font-bold w-full" />
@@ -141,6 +144,14 @@ useEffect(() => {
           </form>
           <div className="mt-4">
             <button 
+              onClick={handleRestartPassword} // Llama a la función para restablecer la contraseña
+              className="text-sm text-blue-500 hover:underline"
+            >
+              Forgot your password?
+            </button>
+          </div>
+          <div className="mt-4">
+            <button 
               onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)} 
               className="text-sm text-blue-500 hover:underline"
             >
@@ -151,7 +162,6 @@ useEffect(() => {
       </div>
     </div>
   );
-  
-}
+};
 
 export default Login;

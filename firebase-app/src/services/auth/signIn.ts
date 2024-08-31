@@ -2,7 +2,6 @@ import { getAuth, signInWithEmailAndPassword, signOut, User } from "firebase/aut
 import ErrorHandler from "@/helper/errorHandler.helper";
 import { AuthResponse, RESPONSE_STATUS } from "@/interfaces/data";
 import app from "../firebase";
-import { sign } from "crypto";
 
 const auth = getAuth(app);
 

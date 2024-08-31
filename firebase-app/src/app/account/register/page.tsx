@@ -1,10 +1,8 @@
-"use client"
 import { useEffect, useState } from "react";
 import { LOGIN_VIEW } from "@/interfaces/data";
 import Button from "@/components/Button";
 import signUp from "@/services/auth/signUp";
 import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
 
 interface IRegisterProps {
   setCurrentView: (view: LOGIN_VIEW) => void;
@@ -15,9 +13,7 @@ const Register = ({ setCurrentView }: IRegisterProps) => {
   const [userLastName, setUserLastName] = useState<string>("")
   const [userEmail, setUserEmail] = useState<string>("")
   const [userPassword, setUserPassword] = useState<string>("")
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isSubmitDisabled, setIsSubmitDisabled] = useState<boolean>(true);
-  const router = useRouter();
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

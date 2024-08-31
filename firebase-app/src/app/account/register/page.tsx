@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import { LOGIN_VIEW } from "@/interfaces/data";
 import Button from "@/components/Button";

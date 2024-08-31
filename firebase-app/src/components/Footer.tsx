@@ -10,7 +10,7 @@ const Footer = () => {
           </a>
         </p>
         <p className="text-sm mt-2">
-          <a href="https://github.com/NicolasNievas/Authentication-with-Firebase-" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">
+          <a href="https://github.com/NicolasNievas/Authentication-with-Firebase-" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
             GitHub Repository
           </a>
         </p>

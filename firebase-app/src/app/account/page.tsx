@@ -9,7 +9,7 @@ export default function Account() {
     const [currentView, setCurrentView] = useState<LOGIN_VIEW>(LOGIN_VIEW.SIGN_IN);
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center p-4">
             {currentView === LOGIN_VIEW.SIGN_IN && (
                 <Login setCurrentView={setCurrentView} />
             )}

@@ -12,7 +12,7 @@ To install the necessary dependencies, run the following command:
 Deployed Application
 
 ```
-    
+    https://auth-with-firebase-kappa.vercel.app
 ```
 
 ## 🎨 Additional Libraries
